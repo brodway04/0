@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulu Broadway | Premium Alım, Satım & Takas</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CORE RESETS & VARIABLES --- */
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #111827;
+            --primary: #f59e0b; 
+            --primary-hover: #d97706;
+            --wp-green: #22c55e;
+            --wp-hover: #16a34a;
+            --insta-pink: #e1306c;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+            --font-title: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.98)),
+                        url("https://www.klasikotomobiller.net/wp-content/uploads/2016/10/renault-9-broadway.jpg") center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .hero {
+            max-width: 850px;
+            z-index: 2;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .badge {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-family: var(--font-title);
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        header h2 {
+            font-family: var(--font-title);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #d1d5db;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- BUTTONS --- */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .btn-primary { background: var(--primary); color: #000; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2); }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); }
+
+        .btn-wp { border: 2px solid var(--wp-green); color: var(--wp-green); background: rgba(34, 197, 94, 0.02); }
+        .btn-wp:hover { background: var(--wp-green); color: #fff; transform: translateY(-3px); }
+
+        .btn-insta { border: 2px solid var(--insta-pink); color: var(--insta-pink); background: rgba(225, 48, 108, 0.02); }
+        .btn-insta:hover { background: var(--insta-pink); color: #fff; transform: translateY(-3px); }
+
+        /* --- SERVICES SECTION --- */
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 24px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-family: var(--font-title);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        /* --- ARABA FOTOĞRAFLARI VİTRİNİ --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .gallery-img-box {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: #1f2937; 
+            cursor: pointer; /* Tıklanabilir hissi için el ikonu */
+            overflow: hidden;
+        }
+
+        /* Resmin üzerine gelince hafif büyüme efekti */
+        .gallery-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img-box:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Fotoğrafın ortasında beliren büyüteç ikonu */
+        .gallery-img-box::after {
+            content: '\f065';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-img-box:hover::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gallery-details {
+            padding: 24px;
+        }
+
+        .gallery-details h4 {
+            font-family: var(--font-title);
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .gallery-details p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+            height: 42px;
+            overflow: hidden;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-satilik { background: rgba(34, 197, 94, 0.1); color: var(--wp-green); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .status-satildi { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+        /* --- TAM EKRAN RESİM GÖSTERİCİ (LIGHTBOX MODAL) --- */
+        .lightbox-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(7, 10, 16, 0.95);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px; right: 24px;
+            color: #fff;
+            font-size: 35px;
+            cursor: pointer;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary);
+        }
+
+        /* --- CONTACT & BOX --- */
+        .contact-box {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            border: 1px solid var(--border-color);
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            border-radius: 32px;
+            text-align: center;
+        }
+
+        .phone-link {
+            font-family: var(--font-title);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: block;
+            margin: 25px 0;
+            transition: var(--transition);
+        }
+
+        .phone-link:hover { color: #fff; transform: scale(1.02); }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.04);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 15px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: #070a10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-family: var(--font-title);
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .footer-brand span { color: var(--primary); }
+        .footer-copy { color: var(--text-muted); font-size: 14px; }
+        
+        .footer-credits {
+            margin-top: 5px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            width: 100%;
+            max-width: 400px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .footer-credits a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-credits a:hover { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            header h1 { font-size: 60px; }
+            .section-title { font-size: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 60px 20px; }
+            header h1 { font-size: 44px; }
+            header h2 { font-size: 18px; letter-spacing: 2px; }
+            header p { font-size: 16px; margin-bottom: 30px; }
+            
+            .buttons { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; }
+            .btn { width: 100%; padding: 14px 24px; }
+            
+            section { padding: 60px 20px; }
+            .section-subtitle { margin-bottom: 35px; }
+            
+            .gallery-img-box { height: 200px; }
+            .gallery-details p { height: auto; }
+
+            .contact-box { padding: 40px 20px; }
+            .phone-link { font-size: 32px; margin: 15px 0; }
+            .lightbox-close { top: 16px; right: 16px; font-size: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 36px; }
+            header h2 { font-size: 15px; }
+            .section-title { font-size: 26px; }
+            .phone-link { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="hero">
+            <span class="badge">Kulu'nun Broadway Uzmanı</span>
+            <h1>KULU <span class="highlight">BROADWAY</span></h1>
+            <h2>ALIM • SATIM • TAKAS</h2>
+            <p>Konya Kulu'da en temiz Renault Broadway modelleri. Doğru fiyat, şeffaf ticaret ve hızlı iletişimle hizmetinizdeyiz.</p>
+            
+            <div class="buttons">
+                <a class="btn btn-primary" href="tel:05428283885">
+                    <i class="fa-solid fa-phone"></i> Hemen Ara
+                </a>
+                <a class="btn btn-wp" href="https://wa.me/905428283885" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a class="btn btn-insta" href="https://www.instagram.com/kulu_brodway/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> @kulu_brodway
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARAÇ VİTRİNİ -->
+    <section id="vitrin">
+        <h2 class="section-title">Güncel <span class="highlight">Araçlarımız</span></h2>
+        <p class="section-subtitle">Fotoğraflara tıklayarak araçları tam ekran detaylıca inceleyebilirsiniz.</p>
+        
+        <div class="gallery-grid">
+            
+            <!-- ARABA 1 -->
+            <div class="gallery-item">
+                <div class="gallery-img-box" onclick="openLightbox(this)">
+                    <img src="arabalar/araba1.jpg" alt="1996 Renault Broadway">
+                </div>
+                <div class="gallery-details">
+                    <h4>1996 Renault Broadway</h4>
+                    <p>1993 MODEL, GTE</p>
+                    <span class="status-badge status-satilik">Satılık</span>
+                </div>
+            </div>
+
+            <!-- ARABA 2 -->
+            <div class="gallery-item">
+                <div class="gallery-img-box" onclick="openLightbox(this)">
+                    <img src="arabalar/araba2.jpg" alt="1994 Renault Broadway GTE">
+                </div>
+                <div class="gallery-details">
+                    <h4>1994 Renault Broadway GTE</h4>
+                    <p>1997 MODEL, MUAYENE YENİ, LASTİKLER YENİ</p>
+                    <span class="status-badge status-satilik">Satılık</span>
+                </div>
+            </div>
+
+            <!-- ARABA 3 -->
+            <div class="gallery-item">
+                <div class="gallery-grid-item">
+                    <div class="gallery-img-box" onclick="openLightbox(this)">
+                        <img src="arabalar/araba3.jpg" alt="1997 Renault Broadway RN">
+                    </div>
+                </div>
+                <div class="gallery-details">
+                    <h4>1997 Renault Broadway RN</h4>
+                    <p>1994 MODEL, ORTA KASA, MUAYENE YENİ, LASTİKLER YENİ</p>
+                    <span class="status-badge status-satilik">Satılık</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TAM EKRAN GÖSTERİCİ MODAL (LIGHTBOX) -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightboxForce()">&times;</button>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Büyük Resim">
+    </div>
+
+    <!-- HİZMETLER -->
+    <section id="hizmetler" style="padding-top: 0;">
+        <div class="grid-cards">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-car-side"></i></div>
+                <h3>Değerinde Araç Alımı</h3>
+                <p>Aracınızı nakit ve aynı gün içerisinde piyasa değerinde satın alıyoruz.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Güvenilir Satış</h3>
+                <p>Motor ve kaporta durumu tamamen şeffaf, masrafsız Broadway satışı.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <h3>Takas İmkanı</h3>
+                <p>Mevcut aracınızı getirin, kriterlerinize uyan Broadway ile takas edelim.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section class="contact-section" id="iletisim">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 5px;">Bize Ulaşın</h2>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 10px;">Instagram üzerinden de ilanlarimizi takip edebilirsiniz.</p>
+            
+            <a class="phone-link" href="tel:05428283885">
+                <i class="fa-solid fa-phone-flip" style="font-size: 24px; vertical-align: middle; margin-right: 5px;"></i> 0542 828 38 85
+            </a>
+            
+            <div style="margin-bottom: 25px;">
+                <a href="https://www.instagram.com/kulu_brodway/" target="_blank" style="color: var(--insta-pink); text-decoration: none; font-weight: 600; font-size: 15px;">
+                    <i class="fa-brands fa-instagram"></i> Takip Et: @kulu_brodway
+                </a>
+            </div>
+            
+            <div class="location">
+                <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                <span>Kulu / Konya</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">KULU <span>BROADWAY</span></div>
+            <div class="footer-copy">© 2026 Tüm Hakları Saklıdır.</div>
+            <div class="footer-credits">
+                <a href="https://www.instagram.com/kuluwebtasarim/" target="_blank">
+                    <i class="fa-solid fa-code" style="font-size: 11px;"></i> Web Tasarım: @YazilimAyhan
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX SCRIPT (TAM EKRAN YAPMA KODU) -->
+    <script>
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImg');
+
+        function openLightbox(element) {
+            // Tıklanan kutunun içindeki resmin yolunu (src) alıyoruz
+            const imgSrc = element.querySelector('img').src;
+            modalImg.src = imgSrc;
+            modal.classList.add('active');
+            // Sayfa arkada kaymasın diye scrollu kapatıyoruz
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Resmin dışındaki boşluğa tıklanınca kapatır
+        function closeLightbox(event) {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // X butonuna basınca zorunlu kapatır
+        function closeLightboxForce() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+</body>
+</html>
